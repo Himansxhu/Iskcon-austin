@@ -180,9 +180,6 @@ export default function HomePage() {
               Subscribe
             </button>
           </form>
-          <p className="mt-3 text-xs text-white/50">
-            TODO: connect to email provider (Mailchimp / ConvertKit / etc.)
-          </p>
         </div>
       </section>
 

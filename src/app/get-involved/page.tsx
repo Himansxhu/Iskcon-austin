@@ -65,8 +65,7 @@ export default function GetInvolvedPage() {
             <p className="mt-4 text-ink-soft leading-relaxed">
               Our youth programs offer kirtan, drama, and educational
               activities so children grow up with a joyful connection to
-              Krishna consciousness. TODO: add current class times and youth
-              coordinator contact.
+              Krishna consciousness.
             </p>
           </div>
           <ArtPanel

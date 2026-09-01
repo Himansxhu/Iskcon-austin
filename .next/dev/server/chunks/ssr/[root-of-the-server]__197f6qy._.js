@@ -1343,7 +1343,7 @@ const faqs = [
     },
     {
         q: "Is parking available?",
-        a: "Yes, free on-site parking is available at the temple. TODO: confirm parking details for the new location."
+        a: "Yes, free on-site parking is available at the temple."
     },
     {
         q: "Can I bring my family, including children?",

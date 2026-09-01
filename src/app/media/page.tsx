@@ -86,8 +86,7 @@ export default function MediaPage() {
             ▶
           </span>
           <p className="text-sm text-white/70 relative">
-            Live during Sunday programs — TODO: embed YouTube / Facebook Live
-            player here.
+            Live during Sunday programs.
           </p>
         </div>
         <div className="mt-6 flex flex-wrap gap-3">

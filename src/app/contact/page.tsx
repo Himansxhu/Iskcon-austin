@@ -140,9 +140,6 @@ export default function ContactPage() {
             >
               Send Message
             </button>
-            <p className="text-[11px] text-ink-soft/60">
-              TODO: wire this form to an email service or backend endpoint.
-            </p>
           </form>
         </div>
       </section>
