@@ -60,7 +60,8 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Find Us"
               title="Our Locations"
-              description="ISKCON Austin currently operates across two locations — tap Get Details on any card for its schedule and directions."
+              description="Two locations — tap a card for schedule and directions."
+              descriptionSize="sm"
             />
             <Link
               href="/visit"

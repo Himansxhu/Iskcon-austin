@@ -73,12 +73,16 @@ export function SectionHeading({
   description,
   center = false,
   light = false,
+  descriptionSize = "base",
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   center?: boolean;
   light?: boolean;
+  // "sm" is for a short, one-line description rendered smaller than the
+  // default — use it when the copy is a brief aside rather than a lede.
+  descriptionSize?: "sm" | "base";
 }) {
   return (
     <div className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
@@ -101,9 +105,9 @@ export function SectionHeading({
       </h2>
       {description && (
         <p
-          className={`mt-4 text-base sm:text-lg leading-relaxed ${
-            light ? "text-white/75" : "text-ink-soft"
-          }`}
+          className={`mt-4 leading-relaxed ${
+            descriptionSize === "sm" ? "text-sm" : "text-base sm:text-lg"
+          } ${light ? "text-white/75" : "text-ink-soft"}`}
         >
           {description}
         </p>

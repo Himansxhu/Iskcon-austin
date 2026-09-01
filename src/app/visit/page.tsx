@@ -116,21 +116,9 @@ export default function VisitPage() {
           <SectionHeading
             eyebrow="Getting Here"
             title="Directions & Parking"
-            description="ISKCON Austin operates across two locations — find the right one below and tap Get Directions."
+            description="Two locations — tap a card for schedule and directions."
+            descriptionSize="sm"
           />
-          <div className="mt-8 rounded-2xl bg-white border border-cream-deep p-6 grid sm:grid-cols-2 gap-6 text-sm text-ink-soft leading-relaxed">
-            <p>
-              <span className="font-semibold text-navy">Parking: </span>
-              Free on-site parking is available at each location. TODO:
-              confirm parking details once the new temple location is
-              finalized.
-            </p>
-            <p>
-              <span className="font-semibold text-navy">Accessibility: </span>
-              TODO: confirm wheelchair access, ramps, and accessible seating
-              details.
-            </p>
-          </div>
           <div className="mt-10 grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {locations.map((l) => (
               <Card key={l.key} className="p-6">
