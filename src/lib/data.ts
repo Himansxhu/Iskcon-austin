@@ -127,6 +127,28 @@ export const weeklySchedule = [
   },
 ] as const;
 
+// Single source of truth for the New Temple capital campaign progress —
+// change these two numbers and the label/percentage everywhere on the site
+// (hero, homepage, About, Virtual Tour, New Temple location page) update
+// together automatically.
+export const campaignProgress = {
+  raised: 1_250_000, // $1.25M — confirmed by Sravanananda
+  goal: 4_500_000, // $4.5M — updated per client's requested website changes
+};
+
+export function campaignPercent() {
+  return Math.round((campaignProgress.raised / campaignProgress.goal) * 100);
+}
+
+function formatMoney(n: number) {
+  if (n % 1_000_000 === 0) return `$${n / 1_000_000}M`;
+  return `$${(n / 1_000_000).toFixed(2).replace(/0$/, "")}M`;
+}
+
+function givingProgressLabel() {
+  return `${formatMoney(campaignProgress.raised)} raised of ${formatMoney(campaignProgress.goal)} goal`;
+}
+
 // Home hero carousel — one slide per key message. `image` points at a file
 // the client should drop into /public/hero/ (see the image-prompt list
 // handed back alongside this file); until that file exists, the slide
@@ -144,14 +166,6 @@ export const heroSlides = [
       { time: "11:40 AM – 12:30 PM", title: "Bhagavad-gita Study & Q&A" },
       { time: "12:30 – 1:00 PM", title: "Aarti Followed by Prasadam" },
     ],
-  },
-  {
-    key: "govardhan",
-    image: "/hero/govardhan-puja.jpg",
-    eyebrow: "Annual Festival",
-    title: "Govardhan Puja",
-    body: "An Annakuta offering of 108 preparations and a re-enactment of Krishna lifting Govardhan Hill — join us for this beloved celebration.",
-    primaryCta: { label: "See Festival Calendar", href: "/get-involved#events" },
   },
   {
     key: "kirtan",
@@ -209,28 +223,6 @@ export const constructionUpdates = {
     "Krishna prasadam distribution to begin shortly after the Grand Opening",
   ],
 };
-
-// Single source of truth for the New Temple capital campaign progress —
-// change these two numbers and the label/percentage everywhere on the site
-// (hero, homepage, About, Virtual Tour, New Temple location page) update
-// together automatically.
-export const campaignProgress = {
-  raised: 1_250_000, // $1.25M — confirmed by Sravanananda
-  goal: 4_500_000, // $4.5M — updated per client's requested website changes
-};
-
-export function campaignPercent() {
-  return Math.round((campaignProgress.raised / campaignProgress.goal) * 100);
-}
-
-function formatMoney(n: number) {
-  if (n % 1_000_000 === 0) return `$${n / 1_000_000}M`;
-  return `$${(n / 1_000_000).toFixed(2).replace(/0$/, "")}M`;
-}
-
-function givingProgressLabel() {
-  return `${formatMoney(campaignProgress.raised)} raised of ${formatMoney(campaignProgress.goal)} goal`;
-}
 
 // Virtual tour — architectural renderings of the new temple, grouped by
 // Exterior / Interior. Images live in /public/temple-renderings/.
