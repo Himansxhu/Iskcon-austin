@@ -238,9 +238,6 @@ export const virtualTourImages = [
     src: "/temple-renderings/exterior-01-entrance-courtyard.jpg",
     title: "Entrance Courtyard",
     caption: "Approaching the new temple across the entrance courtyard.",
-    // Grouped with the other "Temple Front" views into a single gallery
-    // tile that cycles through all three photos.
-    set: "temple-front",
   },
   {
     key: "exterior-02",
@@ -248,7 +245,6 @@ export const virtualTourImages = [
     src: "/temple-renderings/exterior-02-facade.jpg",
     title: "Temple Facade",
     caption: "The main facade, viewed from the parking and arrival area.",
-    set: "temple-front",
   },
   {
     key: "exterior-03",
@@ -263,7 +259,6 @@ export const virtualTourImages = [
     src: "/temple-renderings/exterior-04-front-entrance-pool.jpg",
     title: "Front Entrance & Reflecting Pool",
     caption: "The front entrance framed by a reflecting pool.",
-    set: "temple-front",
   },
   {
     key: "exterior-05",
@@ -278,26 +273,6 @@ export const virtualTourImages = [
     src: "/temple-renderings/interior-01-altar-hall.jpg",
     title: "Shrine Alcove",
     caption: "The grand worship hall, leading toward the Radha-Krishna altar.",
-  },
-  {
-    key: "interior-02",
-    group: "Interior" as const,
-    src: "/temple-renderings/interior-02-great-hall.jpg",
-    title: "Great Hall",
-    caption: "A wide view of the great hall, with acharya portraits and lila paintings along the walls.",
-    // Rendering not available yet — gallery shows a "coming soon" placeholder
-    // in its place until a final image is provided.
-    placeholder: true,
-  },
-  {
-    key: "interior-03",
-    group: "Interior" as const,
-    src: "/temple-renderings/interior-03-shrine-alcove.jpg",
-    title: "Grand Hall & Altar",
-    caption: "The main altar, adorned for worship, with devotees gathered for darshan.",
-    // Rendering not available yet — gallery shows a "coming soon" placeholder
-    // in its place until a final image is provided.
-    placeholder: true,
   },
 ] as const;
 
