@@ -31,6 +31,11 @@ export default function GivingForm() {
   const selected = custom ? Number(custom) || 0 : amount;
   const activeQr = qrOptions[qrMethod];
 
+  const openQr = (method: keyof typeof qrOptions) => {
+    setQrMethod(method);
+    setQrOpen(true);
+  };
+
   return (
     <div className="rounded-3xl bg-white border border-cream-deep shadow-md p-6 sm:p-8">
       {/* Fund selector */}
@@ -134,16 +139,23 @@ export default function GivingForm() {
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="button"
-            onClick={() => setQrOpen(true)}
+            onClick={() => openQr("zelle")}
             className="rounded-full bg-white/10 border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
           >
-            Pay with QR Code
+            Pay through Zelle
+          </button>
+          <button
+            type="button"
+            onClick={() => openQr("paypal")}
+            className="rounded-full bg-white/10 border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+          >
+            Pay through PayPal
           </button>
           <a
             href={DONATION_CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-dark hover:bg-gold-light transition-colors"
+            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white hover:bg-gold-light transition-colors"
           >
             Continue to Secure Checkout →
           </a>
@@ -176,7 +188,7 @@ export default function GivingForm() {
             </button>
 
             <p className="text-xs font-semibold uppercase tracking-wide text-navy mb-3 pr-8">
-              Scan to Give
+              Scan to Pay via {activeQr.label}
             </p>
 
             <div className="inline-flex rounded-full bg-cream p-1">
