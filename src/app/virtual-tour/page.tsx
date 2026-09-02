@@ -44,13 +44,13 @@ export default function VirtualTourPage() {
           />
           <div className="mt-10 grid lg:grid-cols-2 gap-8">
             <div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep bg-white shadow-sm">
+              <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep bg-white shadow-sm">
                 <Image
                   src="/new-temple/site-plan.jpg"
                   alt="Approved civil site plan for the new ISKCON Austin temple property"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-contain"
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <CornerFrame tone="gold" size={18} inset={10} />
               </div>
@@ -59,13 +59,13 @@ export default function VirtualTourPage() {
               </p>
             </div>
             <div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep shadow-sm">
+              <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep shadow-sm">
                 <Image
                   src="/new-temple/site-landmark-aerial.jpg"
                   alt="Aerial landmark view of the new temple property and surrounding Austin neighborhood"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <CornerFrame tone="white" size={18} inset={10} />
               </div>
