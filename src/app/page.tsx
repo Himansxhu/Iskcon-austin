@@ -171,7 +171,7 @@ export default function HomePage() {
               type="email"
               required
               placeholder="you@example.com"
-              className="flex-1 rounded-full px-5 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 focus:ring-gold"
+              className="flex-1 rounded-full bg-white px-5 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 focus:ring-gold"
             />
             <button
               type="submit"
