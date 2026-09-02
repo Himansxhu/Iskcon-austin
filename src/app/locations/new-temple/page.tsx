@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Button, SectionHeading } from "@/components/ui";
-import { MapPinIcon } from "@/components/devotional-art";
 import { CornerFrame } from "@/components/ornaments";
-import { campaignPercent, constructionUpdates, givingFunds, locations } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "New Temple",
   description:
     "ISKCON's New Temple in Austin, Texas — a beautiful spiritual oasis that will enlighten your heart. See renderings, the address, and how to support the campaign.",
 };
-
-const location = locations.find((l) => l.key === "newTemple")!;
-const campaign = givingFunds.find((f) => f.key === "capital")!;
 
 const renderings = [
   { src: "/temple-renderings/exterior-04-front-entrance-pool.jpg", caption: "Front Entrance & Reflecting Pool" },
@@ -52,145 +47,6 @@ export default function NewTempleLocationPage() {
               Support the Campaign
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* Location details */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <SectionHeading eyebrow="Find Us" title="Site Address" />
-            <div className="mt-6 flex items-start gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream text-gold border border-cream-deep">
-                <MapPinIcon className="w-5 h-5" />
-              </span>
-              <div>
-                <p className="font-semibold text-navy">{location.address}</p>
-                <p className="text-sm text-ink-soft mt-1">{location.description}</p>
-              </div>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={location.directionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white hover:bg-gold-light transition-colors shadow-sm"
-              >
-                Get Directions
-              </a>
-              <Button href="/virtual-tour" variant="secondary">
-                Take the Virtual Tour
-              </Button>
-            </div>
-          </div>
-
-          <div>
-            <SectionHeading eyebrow="New Temple Campaign" title="A Home Built to Last Generations" />
-            <p className="mt-4 text-ink-soft leading-relaxed">{campaign.description}</p>
-            <div className="mt-6">
-              <div className="flex items-center justify-between text-sm font-semibold text-navy mb-2">
-                <span>{campaign.stat}</span>
-                <span>{campaignPercent()}%</span>
-              </div>
-              <div className="h-3 rounded-full bg-cream overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-gold to-gold-light"
-                  style={{ width: `${campaignPercent()}%` }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Construction progress & temple features */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
-        <SectionHeading
-          eyebrow="Where Things Stand"
-          title="Construction Progress"
-          description={`${constructionUpdates.templeName} — the latest on where the project stands, and what to expect once ground is broken.`}
-        />
-        <div className="mt-10">
-          <h3 className="font-display text-lg font-semibold text-navy">Construction Updates</h3>
-          <p className="mt-1 text-xs text-ink-soft">Hover a step for details.</p>
-
-          <div className="mt-8">
-            <div className="relative grid grid-cols-5 items-start gap-1 sm:gap-4">
-              {/* Connector track */}
-              <div
-                className="absolute top-3 sm:top-4 h-0.5 bg-cream-deep"
-                style={{
-                  left: `${100 / (constructionUpdates.milestones.length * 2)}%`,
-                  right: `${100 / (constructionUpdates.milestones.length * 2)}%`,
-                }}
-                aria-hidden
-              />
-              {/* Connector progress (gold, up through the completed steps) */}
-              <div
-                className="absolute top-3 sm:top-4 h-0.5 bg-gold transition-all"
-                style={{
-                  left: `${100 / (constructionUpdates.milestones.length * 2)}%`,
-                  width: `${
-                    (Math.max(constructionUpdates.milestones.filter((m) => m.done).length - 1, 0) /
-                      (constructionUpdates.milestones.length - 1)) *
-                    (100 - 100 / constructionUpdates.milestones.length)
-                  }%`,
-                }}
-                aria-hidden
-              />
-
-              {constructionUpdates.milestones.map((m, i) => (
-                <div
-                  key={m.title}
-                  className="group relative z-10 flex flex-col items-center px-0.5 text-center"
-                >
-                  <span
-                    className={`flex h-6 w-6 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full text-[10px] sm:text-xs font-bold ring-4 ring-cream ${
-                      m.done
-                        ? "bg-gold text-white"
-                        : "bg-white text-gold border-2 border-gold/50"
-                    }`}
-                  >
-                    {m.done ? "✓" : i + 1}
-                  </span>
-                  <p className="mt-2 sm:mt-3 text-[9px] sm:text-xs font-semibold text-navy leading-snug">
-                    {m.title}
-                  </p>
-
-                  {/* Detail — hidden until this node is hovered */}
-                  <div
-                    className="pointer-events-none absolute top-full left-1/2 mt-2 sm:mt-3 w-36 max-w-[70vw] sm:w-52 sm:max-w-none -translate-x-1/2 translate-y-1 rounded-xl bg-navy px-3 py-2.5 sm:px-4 sm:py-3 text-left text-[10px] sm:text-xs opacity-0 shadow-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 z-20"
-                  >
-                    {m.detail && (
-                      <p className="text-white/85 leading-relaxed">{m.detail}</p>
-                    )}
-                    <p
-                      className={`mt-1.5 text-[10px] font-semibold uppercase tracking-wide ${
-                        m.done ? "text-gold-light" : "text-white/60"
-                      }`}
-                    >
-                      {m.date}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <p className="mt-10 text-sm text-ink-soft leading-relaxed rounded-xl bg-cream border border-cream-deep px-4 py-3 max-w-xl">
-            Estimated time needed to construct once building begins:{" "}
-            <span className="font-semibold text-navy">{constructionUpdates.constructionDuration}</span>.
-          </p>
-
-          <h3 className="mt-14 font-display text-lg font-semibold text-navy">Temple Features</h3>
-          <ul className="mt-5 grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-3xl">
-            {constructionUpdates.features.map((f) => (
-              <li key={f} className="flex gap-3 text-sm text-ink-soft leading-relaxed">
-                <span className="text-gold font-bold">•</span>
-                {f}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

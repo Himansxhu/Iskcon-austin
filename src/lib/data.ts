@@ -181,7 +181,7 @@ export const heroSlides = [
     eyebrow: "A Gift for Generations",
     title: "A Grand New Temple Is Coming to Austin",
     body: "Help us build a permanent home for Krishna consciousness in Central Texas — a worship hall, residences, and gardens for generations of devotees to come.",
-    primaryCta: { label: "Explore the New Temple", href: "/locations/new-temple" },
+    primaryCta: { label: "Explore the New Temple", href: "/virtual-tour" },
     stat: givingProgressLabel(),
   },
 ] as const;
