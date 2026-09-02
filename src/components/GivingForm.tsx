@@ -1,18 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { donationTiers, givingFunds } from "@/lib/data";
 
 const DONATION_CHECKOUT_URL =
   "https://www.zeffy.com/en-US/donation-form/donate-to-build-the-iskcon-temple-in-austin";
+
+const qrOptions = {
+  zelle: {
+    label: "Zelle",
+    image: "/donate/zelle-qr.jpg",
+    instructions: "Open your banking app, scan this code with Zelle, and send your gift directly — no fees, no account needed.",
+  },
+  paypal: {
+    label: "PayPal",
+    image: "/donate/paypal-qr.jpg",
+    instructions: "Open the PayPal app, scan this code, and send your gift securely through PayPal.",
+  },
+} as const;
 
 export default function GivingForm() {
   const [fund, setFund] = useState<string>(givingFunds[0].key);
   const [frequency, setFrequency] = useState<"once" | "monthly">("once");
   const [amount, setAmount] = useState<number>(donationTiers[2].amount);
   const [custom, setCustom] = useState<string>("");
+  const [qrOpen, setQrOpen] = useState(false);
+  const [qrMethod, setQrMethod] = useState<keyof typeof qrOptions>("zelle");
 
   const selected = custom ? Number(custom) || 0 : amount;
+  const activeQr = qrOptions[qrMethod];
 
   return (
     <div className="rounded-3xl bg-white border border-cream-deep shadow-md p-6 sm:p-8">
@@ -114,14 +131,23 @@ export default function GivingForm() {
             </span>
           </p>
         </div>
-        <a
-          href={DONATION_CHECKOUT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-dark hover:bg-gold-light transition-colors"
-        >
-          Continue to Secure Checkout →
-        </a>
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setQrOpen(true)}
+            className="rounded-full bg-white/10 border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+          >
+            Pay with QR Code
+          </button>
+          <a
+            href={DONATION_CHECKOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-dark hover:bg-gold-light transition-colors"
+          >
+            Continue to Secure Checkout →
+          </a>
+        </div>
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-ink-soft/70">
@@ -129,6 +155,62 @@ export default function GivingForm() {
         <span className="flex items-center gap-1.5">🧾 Tax-deductible receipt emailed instantly</span>
         <span className="flex items-center gap-1.5">✔ 501(c)(3) nonprofit</span>
       </div>
+
+      {/* QR Code payment modal */}
+      {qrOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-navy-dark/70 backdrop-blur-sm p-4"
+          onClick={() => setQrOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-sm rounded-3xl bg-white p-6 sm:p-8 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setQrOpen(false)}
+              className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-cream text-navy hover:bg-cream-deep transition-colors"
+            >
+              ×
+            </button>
+
+            <p className="text-xs font-semibold uppercase tracking-wide text-navy mb-3 pr-8">
+              Scan to Give
+            </p>
+
+            <div className="inline-flex rounded-full bg-cream p-1">
+              {(Object.keys(qrOptions) as (keyof typeof qrOptions)[]).map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setQrMethod(key)}
+                  className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                    qrMethod === key
+                      ? "bg-navy text-white"
+                      : "text-navy hover:bg-cream-deep"
+                  }`}
+                >
+                  Pay via {qrOptions[key].label}
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-5 relative aspect-square w-full overflow-hidden rounded-2xl border border-cream-deep bg-white">
+              <Image
+                src={activeQr.image}
+                alt={`QR code to donate via ${activeQr.label}`}
+                fill
+                sizes="(min-width: 640px) 384px, 90vw"
+                className="object-contain p-2"
+              />
+            </div>
+            <p className="mt-4 text-sm text-ink-soft leading-relaxed text-center">
+              {activeQr.instructions}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
