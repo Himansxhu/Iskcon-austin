@@ -286,6 +286,9 @@ export const virtualTourImages = [
     src: "/temple-renderings/interior-02-great-hall.jpg",
     title: "Great Hall",
     caption: "A wide view of the great hall, with acharya portraits and lila paintings along the walls.",
+    // Rendering not available yet — gallery shows a "coming soon" placeholder
+    // in its place until a final image is provided.
+    placeholder: true,
   },
   {
     key: "interior-03",
@@ -293,6 +296,9 @@ export const virtualTourImages = [
     src: "/temple-renderings/interior-03-shrine-alcove.jpg",
     title: "Grand Hall & Altar",
     caption: "The main altar, adorned for worship, with devotees gathered for darshan.",
+    // Rendering not available yet — gallery shows a "coming soon" placeholder
+    // in its place until a final image is provided.
+    placeholder: true,
   },
 ] as const;
 

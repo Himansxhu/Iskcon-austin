@@ -12,6 +12,9 @@ const SET_LABELS: Record<string, string> = {
   "temple-front": "Temple Front",
 };
 
+const isPlaceholder = (img: TourImage) =>
+  Boolean((img as { placeholder?: boolean }).placeholder);
+
 export default function VirtualTourGallery() {
   const [filter, setFilter] = useState<Group | "All">("All");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -96,13 +99,17 @@ export default function VirtualTourGallery() {
               onClick={() => setOpenIndex(tile.index)}
               className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep bg-cream text-left shadow-sm"
             >
-              <Image
-                src={tile.img.src}
-                alt={tile.img.title}
-                fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              {isPlaceholder(tile.img) ? (
+                <ComingSoonPlaceholder />
+              ) : (
+                <Image
+                  src={tile.img.src}
+                  alt={tile.img.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/85 via-navy-dark/0 to-transparent" />
               <CornerFrame tone="white" size={16} inset={8} />
               <div className="absolute inset-x-0 bottom-0 p-4">
@@ -167,14 +174,18 @@ export default function VirtualTourGallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/15 shadow-2xl">
-              <Image
-                src={visible[openIndex].src}
-                alt={visible[openIndex].title}
-                fill
-                sizes="90vw"
-                className="object-cover"
-                priority
-              />
+              {isPlaceholder(visible[openIndex]) ? (
+                <ComingSoonPlaceholder />
+              ) : (
+                <Image
+                  src={visible[openIndex].src}
+                  alt={visible[openIndex].title}
+                  fill
+                  sizes="90vw"
+                  className="object-cover"
+                  priority
+                />
+              )}
               <CornerFrame tone="white" size={24} inset={12} />
             </div>
             <div className="mt-4 text-center text-white">
@@ -191,6 +202,32 @@ export default function VirtualTourGallery() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/**
+ * Stands in for a rendering that hasn't been supplied yet. Shows a neutral
+ * placeholder with a "coming soon" message instead of a broken/missing image.
+ */
+function ComingSoonPlaceholder() {
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-navy to-navy-dark text-center px-6">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        className="w-9 h-9 text-white/40"
+        aria-hidden
+      >
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <circle cx="9" cy="10" r="2" />
+        <path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L4 19" />
+      </svg>
+      <p className="text-xs font-semibold uppercase tracking-wide text-white/70">
+        Image Coming Soon
+      </p>
     </div>
   );
 }
