@@ -31,7 +31,7 @@ const gallerySections: GallerySection[] = [
     key: "temple-life",
     label: "Temple Life",
     description:
-      "Sunday programs, kirtan, deity darshan, and everyday moments at the temple.",
+      "Sunday programs, kirtan, Deity darshan, and everyday moments at the temple.",
     photos: Array.from({ length: 15 }, (_, i) => {
       const n = String(i + 1).padStart(2, "0");
       return {

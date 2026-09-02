@@ -83,7 +83,7 @@ export default function SundayLocationPage() {
       <section className="bg-cream">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
           <SectionHeading
-            eyebrow="See It For Yourself"
+            eyebrow="See It for Yourself"
             title="Photos From This Location"
             description="Moments from Sunday kirtan, class, and the free feast, held here."
           />

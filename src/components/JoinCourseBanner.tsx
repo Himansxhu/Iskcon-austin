@@ -22,7 +22,7 @@ export default function JoinCourseBanner() {
           Join Our Courses
         </h2>
         <p className="mt-4 text-white/85 leading-relaxed max-w-xl mx-auto">
-          Sign up for our daily thought for the day and spiritual e-course.
+          Sign up for our daily thought-of-the-day and spiritual e-course.
         </p>
         <p className="mt-2 text-sm text-white/60 leading-relaxed max-w-xl mx-auto">
           A short, free lesson in your inbox each day — simple wisdom from the

@@ -39,7 +39,7 @@ export default function NewTempleLocationPage() {
         <div className="absolute inset-0 pattern-dots text-white/[0.05]" aria-hidden />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 relative text-center">
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-gold-light">
-            A Gift For Generations
+            A Gift for Generations
           </p>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-balance max-w-3xl mx-auto">
             ISKCON&rsquo;s New Temple in Austin, Texas
@@ -218,7 +218,7 @@ export default function NewTempleLocationPage() {
       <section className="bg-cream">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
           <SectionHeading
-            eyebrow="See It For Yourself"
+            eyebrow="See It for Yourself"
             title="Architectural Renderings"
             description="A preview of the new temple, currently under development."
           />

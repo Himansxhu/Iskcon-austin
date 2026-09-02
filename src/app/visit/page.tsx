@@ -40,8 +40,8 @@ export default function VisitPage() {
             </li>
             <li className="flex gap-3">
               <span className="text-gold font-bold">•</span>
-              Seating is on the floor, cushions and chairs are available for
-              anyone who needs them.
+              Seating is on the floor, though cushions and chairs are
+              available for anyone who needs them.
             </li>
             <li className="flex gap-3">
               <span className="text-gold font-bold">•</span>

@@ -449,7 +449,7 @@ export const givingFunds = [
 // About page as closely as possible (source: iskconaustin.com/about/).
 export const iskconPhilosophy = {
   intro:
-    "Welcome to our website. We are the ISKCON Austin Hare Krishna center, the Austin, Texas USA branch of ISKCON, the International Society for Krishna Consciousness. ISKCON is a worldwide organization of over 650 temples and centers that was started in New York City in 1966. Globally we are endeavoring to bring to planet earth a new age of unparalleled peace and prosperity for all. And locally we are dedicated to making Austin a spiritual city where everyone lives in perfect peace and harmony by making Krishna or God the center of their lives.",
+    "Welcome to our website. We are the ISKCON Austin Hare Krishna center, the Austin, Texas, USA branch of ISKCON, the International Society for Krishna Consciousness. ISKCON is a worldwide organization of over 650 temples and centers that was started in New York City in 1966. Globally we are endeavoring to bring to planet earth a new age of unparalleled peace and prosperity for all. And locally we are dedicated to making Austin a spiritual city where everyone lives in perfect peace and harmony by making Krishna or God the center of their lives.",
   paragraphs: [
     "ISKCON is popularly known as the Hare Krishna Movement. This is a movement with historical roots going back at least 5,000 years ago to the time when Lord Sri Krishna was present on the planet in India and spoke the now famous Bhagavad-gita to his beloved friend Arjuna.",
     "In the later part of the 15th century, Sri Chaitanya Mahaprabhu revitalized the bhakti tradition by introducing an expansive spiritual movement that swept India. Central to this renaissance was Chaitanya Mahaprabhu's emphasis on the chanting of Lord Krishna's holy names. Underlying the practice was a profound, rational, and intellectually comprehensive theology. ISKCON is a continuation of the movement that Sri Chaitanya revitalized.",
@@ -460,7 +460,7 @@ export const iskconPhilosophy = {
 export const coreBeliefs = [
   {
     title: "Krishna, the Supreme",
-    description: "Krishna is understood as the Supreme Personality of Godhead — the source of all that exists, worshipped as a personal, loving God rather than an abstract force.",
+    description: "Krishna is understood as the Supreme Personality of Godhead — the source of all that exists, worshiped as a personal, loving God rather than an abstract force.",
   },
   {
     title: "Bhagavad-gita As It Is",

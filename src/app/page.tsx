@@ -127,7 +127,7 @@ export default function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading eyebrow="Mark Your Calendar" title="Upcoming Events" />
           <Link href="/get-involved#events" className="text-sm font-semibold text-gold hover:text-gold-light">
-            View full calendar →
+            View Full Calendar →
           </Link>
         </div>
         <div className="mt-10 grid sm:grid-cols-3 gap-6">
