@@ -21,7 +21,6 @@ export const site = {
   // Direct temple contacts.
   contactPeople: [
     { name: "Abhay Charan Das", phone: "+1-512-762-6644" },
-    { name: "Caitanyavani Das", phone: "+1-512-689-6971" },
     { name: "Sravanananda Das", phone: "+1-408-594-8864" },
   ],
   map: {
