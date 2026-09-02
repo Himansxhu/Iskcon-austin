@@ -214,6 +214,12 @@ export const constructionUpdates = {
       date: "In progress",
       done: false,
     },
+    {
+      title: "Construction Begins",
+      detail: "Ground will break once the final round of fundraising is complete.",
+      date: "Upcoming",
+      done: false,
+    },
   ],
   constructionDuration: "10 to 12 months",
   features: [

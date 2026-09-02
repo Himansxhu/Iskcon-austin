@@ -130,49 +130,87 @@ export default function NewTempleLocationPage() {
           title="Construction Progress"
           description={`${constructionUpdates.templeName} — the latest on where the project stands, and what to expect once ground is broken.`}
         />
-        <div className="mt-10 grid lg:grid-cols-2 gap-12">
-          <div>
-            <h3 className="font-display text-lg font-semibold text-navy">Construction Updates</h3>
-            <ol className="mt-5 space-y-5">
+        <div className="mt-10">
+          <h3 className="font-display text-lg font-semibold text-navy">Construction Updates</h3>
+          <p className="mt-1 text-xs text-ink-soft">Hover a step for details.</p>
+
+          <div className="mt-8 overflow-x-auto pb-2">
+            <div className="relative flex items-start min-w-[640px] sm:min-w-0">
+              {/* Connector track */}
+              <div
+                className="absolute top-4 h-0.5 bg-cream-deep"
+                style={{
+                  left: `${100 / (constructionUpdates.milestones.length * 2)}%`,
+                  right: `${100 / (constructionUpdates.milestones.length * 2)}%`,
+                }}
+                aria-hidden
+              />
+              {/* Connector progress (gold, up through the completed steps) */}
+              <div
+                className="absolute top-4 h-0.5 bg-gold transition-all"
+                style={{
+                  left: `${100 / (constructionUpdates.milestones.length * 2)}%`,
+                  width: `${
+                    (Math.max(constructionUpdates.milestones.filter((m) => m.done).length - 1, 0) /
+                      (constructionUpdates.milestones.length - 1)) *
+                    (100 - 100 / constructionUpdates.milestones.length)
+                  }%`,
+                }}
+                aria-hidden
+              />
+
               {constructionUpdates.milestones.map((m, i) => (
-                <li key={m.title} className="flex gap-4">
+                <div
+                  key={m.title}
+                  className="group relative z-10 flex flex-1 flex-col items-center px-1 text-center"
+                >
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ring-4 ring-cream ${
                       m.done
                         ? "bg-gold text-white"
-                        : "bg-cream text-gold border border-gold/50"
+                        : "bg-white text-gold border-2 border-gold/50"
                     }`}
                   >
                     {m.done ? "✓" : i + 1}
                   </span>
-                  <div>
-                    <p className="font-semibold text-navy leading-snug">{m.title}</p>
+                  <p className="mt-3 text-[11px] sm:text-xs font-semibold text-navy leading-snug">
+                    {m.title}
+                  </p>
+
+                  {/* Detail — hidden until this node is hovered */}
+                  <div
+                    className="pointer-events-none absolute top-full left-1/2 mt-3 w-44 sm:w-52 -translate-x-1/2 translate-y-1 rounded-xl bg-navy px-4 py-3 text-left text-xs opacity-0 shadow-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 z-20"
+                  >
                     {m.detail && (
-                      <p className="text-sm text-ink-soft mt-0.5">{m.detail}</p>
+                      <p className="text-white/85 leading-relaxed">{m.detail}</p>
                     )}
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gold mt-1">
+                    <p
+                      className={`mt-1.5 text-[10px] font-semibold uppercase tracking-wide ${
+                        m.done ? "text-gold-light" : "text-white/60"
+                      }`}
+                    >
                       {m.date}
                     </p>
                   </div>
-                </li>
+                </div>
               ))}
-            </ol>
-            <p className="mt-6 text-sm text-ink-soft leading-relaxed rounded-xl bg-cream border border-cream-deep px-4 py-3">
-              Estimated time needed to construct once building begins:{" "}
-              <span className="font-semibold text-navy">{constructionUpdates.constructionDuration}</span>.
-            </p>
+            </div>
           </div>
-          <div>
-            <h3 className="font-display text-lg font-semibold text-navy">Temple Features</h3>
-            <ul className="mt-5 space-y-4">
-              {constructionUpdates.features.map((f) => (
-                <li key={f} className="flex gap-3 text-sm text-ink-soft leading-relaxed">
-                  <span className="text-gold font-bold">•</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          <p className="mt-10 text-sm text-ink-soft leading-relaxed rounded-xl bg-cream border border-cream-deep px-4 py-3 max-w-xl">
+            Estimated time needed to construct once building begins:{" "}
+            <span className="font-semibold text-navy">{constructionUpdates.constructionDuration}</span>.
+          </p>
+
+          <h3 className="mt-14 font-display text-lg font-semibold text-navy">Temple Features</h3>
+          <ul className="mt-5 grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-3xl">
+            {constructionUpdates.features.map((f) => (
+              <li key={f} className="flex gap-3 text-sm text-ink-soft leading-relaxed">
+                <span className="text-gold font-bold">•</span>
+                {f}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
