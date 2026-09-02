@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageHero, SectionHeading, Button, Eyebrow } from "@/components/ui";
 import { MapPinIcon } from "@/components/devotional-art";
-import { CornerFrame, OrnamentDivider } from "@/components/ornaments";
+import { OrnamentDivider } from "@/components/ornaments";
 import VirtualTourGallery from "@/components/VirtualTourGallery";
+import SitePlanImages from "@/components/SitePlanImages";
 import { campaignPercent, constructionUpdates, givingFunds, locations } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -187,38 +187,7 @@ export default function VirtualTourPage() {
             title="Site Plan & Landmark"
             description="The approved civil site plan for the property, and an aerial view showing exactly where the new temple will sit within the surrounding neighborhood."
           />
-          <div className="mt-10 grid lg:grid-cols-2 gap-8">
-            <div>
-              <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep bg-white shadow-sm">
-                <Image
-                  src="/new-temple/site-plan.jpg"
-                  alt="Approved civil site plan for the new ISKCON Austin temple property"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-                <CornerFrame tone="gold" size={18} inset={10} />
-              </div>
-              <p className="mt-3 text-sm text-ink-soft leading-relaxed">
-                The city-approved overall site plan, prepared by Civilitude Engineers &amp; Planners — showing the temple building, parking, and site circulation.
-              </p>
-            </div>
-            <div>
-              <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-cream-deep shadow-sm">
-                <Image
-                  src="/new-temple/site-landmark-aerial.jpg"
-                  alt="Aerial landmark view of the new temple property and surrounding Austin neighborhood"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <CornerFrame tone="white" size={18} inset={10} />
-              </div>
-              <p className="mt-3 text-sm text-ink-soft leading-relaxed">
-                An aerial view of the vacant lot and its surrounding neighborhood, on the corner of Collinwood West Drive and the main road — easy to find and easy to reach.
-              </p>
-            </div>
-          </div>
+          <SitePlanImages />
         </div>
       </section>
 
