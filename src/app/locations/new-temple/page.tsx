@@ -134,11 +134,11 @@ export default function NewTempleLocationPage() {
           <h3 className="font-display text-lg font-semibold text-navy">Construction Updates</h3>
           <p className="mt-1 text-xs text-ink-soft">Hover a step for details.</p>
 
-          <div className="mt-8 overflow-x-auto pb-2">
-            <div className="relative flex items-start min-w-[640px] sm:min-w-0">
+          <div className="mt-8">
+            <div className="relative grid grid-cols-5 items-start gap-1 sm:gap-4">
               {/* Connector track */}
               <div
-                className="absolute top-4 h-0.5 bg-cream-deep"
+                className="absolute top-3 sm:top-4 h-0.5 bg-cream-deep"
                 style={{
                   left: `${100 / (constructionUpdates.milestones.length * 2)}%`,
                   right: `${100 / (constructionUpdates.milestones.length * 2)}%`,
@@ -147,7 +147,7 @@ export default function NewTempleLocationPage() {
               />
               {/* Connector progress (gold, up through the completed steps) */}
               <div
-                className="absolute top-4 h-0.5 bg-gold transition-all"
+                className="absolute top-3 sm:top-4 h-0.5 bg-gold transition-all"
                 style={{
                   left: `${100 / (constructionUpdates.milestones.length * 2)}%`,
                   width: `${
@@ -162,10 +162,10 @@ export default function NewTempleLocationPage() {
               {constructionUpdates.milestones.map((m, i) => (
                 <div
                   key={m.title}
-                  className="group relative z-10 flex flex-1 flex-col items-center px-1 text-center"
+                  className="group relative z-10 flex flex-col items-center px-0.5 text-center"
                 >
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ring-4 ring-cream ${
+                    className={`flex h-6 w-6 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full text-[10px] sm:text-xs font-bold ring-4 ring-cream ${
                       m.done
                         ? "bg-gold text-white"
                         : "bg-white text-gold border-2 border-gold/50"
@@ -173,13 +173,13 @@ export default function NewTempleLocationPage() {
                   >
                     {m.done ? "✓" : i + 1}
                   </span>
-                  <p className="mt-3 text-[11px] sm:text-xs font-semibold text-navy leading-snug">
+                  <p className="mt-2 sm:mt-3 text-[9px] sm:text-xs font-semibold text-navy leading-snug">
                     {m.title}
                   </p>
 
                   {/* Detail — hidden until this node is hovered */}
                   <div
-                    className="pointer-events-none absolute top-full left-1/2 mt-3 w-44 sm:w-52 -translate-x-1/2 translate-y-1 rounded-xl bg-navy px-4 py-3 text-left text-xs opacity-0 shadow-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 z-20"
+                    className="pointer-events-none absolute top-full left-1/2 mt-2 sm:mt-3 w-36 max-w-[70vw] sm:w-52 sm:max-w-none -translate-x-1/2 translate-y-1 rounded-xl bg-navy px-3 py-2.5 sm:px-4 sm:py-3 text-left text-[10px] sm:text-xs opacity-0 shadow-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 z-20"
                   >
                     {m.detail && (
                       <p className="text-white/85 leading-relaxed">{m.detail}</p>
