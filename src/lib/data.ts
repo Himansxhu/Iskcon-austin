@@ -260,13 +260,6 @@ export const virtualTourImages = [
     title: "Front Entrance & Reflecting Pool",
     caption: "The front entrance framed by a reflecting pool.",
   },
-  {
-    key: "interior-01",
-    group: "Interior" as const,
-    src: "/temple-renderings/interior-01-altar-hall.jpg",
-    title: "Shrine Alcove",
-    caption: "The grand worship hall, leading toward the Radha-Krishna altar.",
-  },
 ] as const;
 
 export type EventCategory = "Festival" | "Class" | "Community";

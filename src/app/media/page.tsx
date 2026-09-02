@@ -32,7 +32,7 @@ const gallerySections: GallerySection[] = [
     label: "Temple Life",
     description:
       "Sunday programs, kirtan, Deity darshan, and everyday moments at the temple.",
-    photos: [1, 5, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26].map((i) => ({
+    photos: Array.from({ length: 13 }, (_, i) => i + 1).map((i) => ({
       src: `/gallery/temple-life-${String(i).padStart(2, "0")}.jpg`,
       alt: `Temple Life — Photo ${i}`,
     })),
