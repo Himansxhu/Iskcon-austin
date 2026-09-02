@@ -261,13 +261,6 @@ export const virtualTourImages = [
     caption: "The front entrance framed by a reflecting pool.",
   },
   {
-    key: "exterior-05",
-    group: "Exterior" as const,
-    src: "/temple-renderings/exterior-05-corner-view.jpg",
-    title: "Corner View",
-    caption: "An angled exterior view showing the building's full scale.",
-  },
-  {
     key: "interior-01",
     group: "Interior" as const,
     src: "/temple-renderings/interior-01-altar-hall.jpg",
