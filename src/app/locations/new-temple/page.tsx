@@ -20,9 +20,9 @@ const renderings = [
   { src: "/temple-renderings/exterior-02-facade.jpg", caption: "Facade" },
   { src: "/temple-renderings/exterior-03-covered-porch.jpg", caption: "Covered Porch" },
   { src: "/temple-renderings/exterior-05-corner-view.jpg", caption: "Corner View" },
-  { src: "/temple-renderings/interior-01-altar-hall.jpg", caption: "Altar Hall" },
+  { src: "/temple-renderings/interior-01-altar-hall.jpg", caption: "Shrine Alcove" },
   { src: "/temple-renderings/interior-02-great-hall.jpg", caption: "Great Hall" },
-  { src: "/temple-renderings/interior-03-shrine-alcove.jpg", caption: "Shrine Alcove" },
+  { src: "/temple-renderings/interior-03-shrine-alcove.jpg", caption: "Altar Hall" },
 ];
 
 export default function NewTempleLocationPage() {
@@ -226,14 +226,14 @@ export default function NewTempleLocationPage() {
             {renderings.map((r) => (
               <div
                 key={r.src}
-                className="relative aspect-square w-full overflow-hidden rounded-2xl border border-cream-deep bg-white shadow-sm"
+                className="group relative aspect-square w-full overflow-hidden rounded-2xl border border-cream-deep bg-white shadow-sm"
               >
                 <Image
                   src={r.src}
                   alt={r.caption}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-transparent to-transparent" />
                 <span className="absolute bottom-2 left-2 right-2 text-[10px] font-semibold uppercase tracking-wide text-white">
