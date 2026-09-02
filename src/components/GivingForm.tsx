@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { donationTiers, givingFunds } from "@/lib/data";
 
+const DONATION_CHECKOUT_URL =
+  "https://www.zeffy.com/en-US/donation-form/donate-to-build-the-iskcon-temple-in-austin";
+
 export default function GivingForm() {
   const [fund, setFund] = useState<string>(givingFunds[0].key);
   const [frequency, setFrequency] = useState<"once" | "monthly">("once");
@@ -111,12 +114,14 @@ export default function GivingForm() {
             </span>
           </p>
         </div>
-        <button
-          type="button"
+        <a
+          href={DONATION_CHECKOUT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy-dark hover:bg-gold-light transition-colors"
         >
           Continue to Secure Checkout →
-        </button>
+        </a>
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-ink-soft/70">
@@ -124,11 +129,6 @@ export default function GivingForm() {
         <span className="flex items-center gap-1.5">🧾 Tax-deductible receipt emailed instantly</span>
         <span className="flex items-center gap-1.5">✔ 501(c)(3) nonprofit</span>
       </div>
-      <p className="mt-3 text-[11px] text-ink-soft/60">
-        TODO: connect this form to a live payment processor (Stripe / PayPal
-        Giving Fund / Givelify) and confirm EIN for the tax-deductibility
-        statement.
-      </p>
     </div>
   );
 }
