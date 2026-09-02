@@ -32,13 +32,10 @@ const gallerySections: GallerySection[] = [
     label: "Temple Life",
     description:
       "Sunday programs, kirtan, Deity darshan, and everyday moments at the temple.",
-    photos: Array.from({ length: 15 }, (_, i) => {
-      const n = String(i + 1).padStart(2, "0");
-      return {
-        src: `/gallery/temple-life-${n}.jpg`,
-        alt: `Temple Life — Photo ${i + 1}`,
-      };
-    }),
+    photos: [1, 5].map((i) => ({
+      src: `/gallery/temple-life-${String(i).padStart(2, "0")}.jpg`,
+      alt: `Temple Life — Photo ${i}`,
+    })),
   },
   {
     key: "ratha-yatra",
