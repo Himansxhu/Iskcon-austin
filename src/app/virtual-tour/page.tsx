@@ -48,9 +48,6 @@ export default function VirtualTourPage() {
               >
                 Get Directions
               </a>
-              <Button href="/locations/new-temple" variant="secondary">
-                View Temple Details
-              </Button>
             </div>
           </div>
 
