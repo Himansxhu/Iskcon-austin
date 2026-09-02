@@ -271,7 +271,7 @@ export const virtualTourImages = [
     key: "interior-01",
     group: "Interior" as const,
     src: "/temple-renderings/interior-01-altar-hall.jpg",
-    title: "Grand Hall & Altar",
+    title: "Shrine Alcove",
     caption: "The grand worship hall, leading toward the Radha-Krishna altar.",
   },
   {
@@ -285,8 +285,8 @@ export const virtualTourImages = [
     key: "interior-03",
     group: "Interior" as const,
     src: "/temple-renderings/interior-03-shrine-alcove.jpg",
-    title: "Shrine Alcove",
-    caption: "A secondary shrine alcove for personal darshan and reflection.",
+    title: "Grand Hall & Altar",
+    caption: "The main altar, adorned for worship, with devotees gathered for darshan.",
   },
 ] as const;
 
