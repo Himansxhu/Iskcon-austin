@@ -1,15 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { KalashFinial } from "@/components/ornaments";
 import { nav, site } from "@/lib/data";
 
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-navy-dark text-white">
       <div className="absolute inset-0 pattern-dots text-white/[0.04]" aria-hidden />
-      <div className="relative flex justify-center pt-8">
-        <KalashFinial className="w-9 h-9 opacity-70" color="var(--color-gold-light)" />
-      </div>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-3">
