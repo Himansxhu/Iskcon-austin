@@ -5,7 +5,7 @@ import Image from "next/image";
 import { CornerFrame } from "@/components/ornaments";
 import { virtualTourImages } from "@/lib/data";
 
-type Group = (typeof virtualTourImages)[number]["group"];
+type Group = "Exterior" | "Interior";
 type TourImage = (typeof virtualTourImages)[number];
 
 const SET_LABELS: Record<string, string> = {
